@@ -30,13 +30,27 @@
 /*
  *Variables y asignaciones previas
  */
+int eADC;
+#define RS  PORTDbits.RD7;
+#define RW  PORTDbits.RD6;
+
+
+
+void __interrupt () isr (void){
+    if (ADCON0bits.GO_DONE == 0){
+       eADC = 1;
+       PIR1bits.ADIF =0;
+    }
+}
+
+
+
+
+
 void main(void) {
+    
+    while (1){
+        
+    }
     return;
 }
-.
-
-.
-        
-        
-        .
-        
