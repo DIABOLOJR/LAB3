@@ -298,51 +298,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LCD.c: 33: int eADC;
 [v _eADC `i ~T0 @X0 1 e ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"36
-[; ;LCD.c: 36: void __attribute__((picinterrupt(("")))) isr (void){
+"38
+[; ;LCD.c: 38: void __attribute__((picinterrupt(("")))) isr (void){
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"37
-[; ;LCD.c: 37:     if (ADCON0bits.GO_DONE == 0){
+"39
+[; ;LCD.c: 39:     if (ADCON0bits.GO_DONE == 0){
 [e $ ! == -> . . _ADCON0bits 3 1 `i -> 0 `i 139  ]
 {
-"38
-[; ;LCD.c: 38:        eADC = 1;
-[e = _eADC -> 1 `i ]
-"39
-[; ;LCD.c: 39:        PIR1bits.ADIF =0;
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
 "40
-[; ;LCD.c: 40: }
+[; ;LCD.c: 40:        eADC = 1;
+[e = _eADC -> 1 `i ]
+"41
+[; ;LCD.c: 41:        PIR1bits.ADIF =0;
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+"42
+[; ;LCD.c: 42:     }
 }
 [e :U 139 ]
-"41
-[; ;LCD.c: 41: }
+"43
+[; ;LCD.c: 43: }
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"62
-[; ;LCD.c: 62: void main(void) {
+"49
+[; ;LCD.c: 49: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"64
-[; ;LCD.c: 64:     while (1){
+"51
+[; ;LCD.c: 51:     while (1){
 [e :U 142 ]
 {
-"66
-[; ;LCD.c: 66:     }
+"53
+[; ;LCD.c: 53:     }
 }
 [e :U 141 ]
 [e $U 142  ]
 [e :U 143 ]
-"67
-[; ;LCD.c: 67:     return;
+"54
+[; ;LCD.c: 54:     return;
 [e $UE 140  ]
-"68
-[; ;LCD.c: 68: }
+"55
+[; ;LCD.c: 55: }
 [e :UE 140 ]
 }

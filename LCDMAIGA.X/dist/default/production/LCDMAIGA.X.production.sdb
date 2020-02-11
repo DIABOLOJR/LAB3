@@ -11,10 +11,24 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"36 C:\Users\egman\OneDrive\Escritorio\LAB3\LCDMAIGA.X\LCD.c
+"38 C:\Users\egman\OneDrive\Escritorio\LAB3\LCDMAIGA.X\LCD.c
 [v _isr isr `II(v  1 e 1 0 ]
-"62
+"49
 [v _main main `(v  1 e 1 0 ]
+"228 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+[s S129 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"369
+[u S138 . 1 `S129 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES138  1 e 1 @8 ]
 [s S68 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
@@ -23,7 +37,7 @@
 `uc 1 RCIF 1 0 :1:5 
 `uc 1 ADIF 1 0 :1:6 
 ]
-"553 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+"553
 [u S76 . 1 `S68 1 . 1 0 ]
 [v _PIR1bits PIR1bits `VES76  1 e 1 @12 ]
 [s S22 . 1 `uc 1 ADON 1 0 :1:0 
@@ -49,15 +63,29 @@
 ]
 [u S42 . 1 `S22 1 . 1 0 `S27 1 . 1 0 `S36 1 . 1 0 `S39 1 . 1 0 ]
 [v _ADCON0bits ADCON0bits `VES42  1 e 1 @31 ]
+"1478
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+[s S107 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"1619
+[u S116 . 1 `S107 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES116  1 e 1 @136 ]
 "33 C:\Users\egman\OneDrive\Escritorio\LAB3\LCDMAIGA.X\LCD.c
 [v _eADC eADC `i  1 e 2 0 ]
-"62
+"49
 [v _main main `(v  1 e 1 0 ]
 {
-"68
+"55
 } 0
-"36
+"38
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"41
+"43
 } 0

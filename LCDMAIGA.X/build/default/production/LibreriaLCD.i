@@ -2495,9 +2495,34 @@ extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
 # 34 "./8 bits.h" 2
 # 1 "LibreriaLCD.c" 2
+# 10 "LibreriaLCD.c"
+int value;
+void Tiempocontrol (void){
+    PORTDbits.RD7 = 1;
+    _delay((unsigned long)((5)*(_XTAL_FREQ/4000000.0)));
+    PORTDbits.RD7 = 0;
+    _delay((unsigned long)((5)*(_XTAL_FREQ/4000000.0)));
+}
 
-
-
+void Control (char valor){
+    PORTDbits.RD6 =0;
+    PORTB = valor & 0xF0;
+    Tiempocontrol();
+    PORTB =((valor & 0xF0)<<4);
+    Tiempocontrol();
+    _delay((unsigned long)((2)*(_XTAL_FREQ/4000.0)));
+}
 void LCDvalue (void){
+    TRISDbits.TRISD6=0;
+    TRISDbits.TRISD7=0;
+    TRISB= 0b11111111;
+    PORTDbits.RD6=0;
+    PORTDbits.RD7=0;
+    PORTB=0;
+    _delay((unsigned long)((50)*(_XTAL_FREQ/4000.0)));
+    Control(0x02);
+    Control(0x28);
+    Control(0x0C);
+    Control(0x06);
 
 }

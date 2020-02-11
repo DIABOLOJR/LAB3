@@ -31,8 +31,7 @@
  *Variables y asignaciones previas
  */
 int eADC;
-#define RS  PORTDbits.RD7;
-#define RW  PORTDbits.RD6;
+
 
 
 

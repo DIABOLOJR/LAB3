@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.10\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\LCDMAIGA.X.production.sym \
   --cmf=dist/default/production\LCDMAIGA.X.production.cmf -z -Q16F887 \
-  -oC:\Users\egman\AppData\Local\Temp\s7hs.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\egman\AppData\Local\Temp\sc1k.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/LCDMAIGA.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -pfunctab=ENTRY -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\egman\AppData\Local\Temp\s7hs.o \
+  -DENTRY=2 -k C:\Users\egman\AppData\Local\Temp\sc1k.o \
   dist/default/production\LCDMAIGA.X.production.o 
 
 Object code version is 3.11
@@ -28,28 +28,28 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\egman\AppData\Local\Temp\s7hs.o
+C:\Users\egman\AppData\Local\Temp\sc1k.o
                 end_init                              C        C        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2     400E       0
 dist/default/production\LCDMAIGA.X.production.o
-                cinit                                 F        F        6        8       0
+                cinit                                 F        F        8        8       0
                 intentry                              4        4        8        8       0
-                text1                                15       15       12        8       0
-                maintext                             27       27        4        8       0
-                cstackCOMMON                         72       72        2       70       1
-                bssCOMMON                            70       70        2       70       1
+                text1                                17       17       12        8       0
+                maintext                             29       29        4        8       0
+                cstackCOMMON                         74       74        2       70       1
+                bssCOMMON                            70       70        4       70       1
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 end_init                              C        C        3         0
-                cinit                                 F        F        6         0
+                cinit                                 F        F        8         0
                 intentry                              4        4        8         0
                 reset_vec                             0        0        3         0
-                text1                                15       15       12         0
-                maintext                             27       27        4         0
+                text1                                17       17       12         0
+                maintext                             29       29        4         0
 
         CLASS   STRCODE        
 
@@ -60,8 +60,8 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   ENTRY          
 
         CLASS   COMMON         
-                cstackCOMMON                         72       72        2         1
-                bssCOMMON                            70       70        2         1
+                cstackCOMMON                         74       74        2         1
+                bssCOMMON                            70       70        4         1
 
         CLASS   BANK0          
 
@@ -96,8 +96,8 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                intentry                       000004  000027  00002B         8       0  CODE        2
-                bssCOMMON                      000070  000004  000074        70       1  COMMON      1
+                intentry                       000004  000029  00002D         8       0  CODE        2
+                bssCOMMON                      000070  000006  000076        70       1  COMMON      1
                 config                         002007  000002  002009      400E       0  CONFIG      2
 
 
@@ -109,13 +109,13 @@ UNUSED ADDRESS RANGES
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
         CODE             0003-0003              1           2
-                         002B-1FFF            800
-        COMMON           0074-007D              A           1
+                         002D-1FFF            800
+        COMMON           0076-007D              8           1
         CONST            0003-0003              1           2
-                         002B-1FFF            100
+                         002D-1FFF            100
         EEDATA           2100-21FF            100           2
         ENTRY            0003-0003              1           2
-                         002B-1FFF            100
+                         002D-1FFF            100
         IDLOC            2000-2003              4           2
         RAM              0020-006F             50           1
                          00A0-00EF             50
@@ -127,14 +127,18 @@ UNUSED ADDRESS RANGES
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
         STRCODE          0003-0003              1           2
-                         002B-1FFF           1FD5
+                         002D-1FFF           1FD3
         STRING           0003-0003              1           2
-                         002B-1FFF            100
+                         002D-1FFF            100
 
                                   Symbol Table
 
 _ADCON0bits              (abs)        001F
 _PIR1bits                (abs)        000C
+_PORTB                   (abs)        0006
+_PORTDbits               (abs)        0008
+_TRISB                   (abs)        0086
+_TRISDbits               (abs)        0088
 __CFG_BOR4V$BOR40V       (abs)        0000
 __CFG_BOREN$ON           (abs)        0000
 __CFG_CP$OFF             (abs)        0000
@@ -153,7 +157,7 @@ __Hbank1                 bank1        0000
 __Hbank2                 bank2        0000
 __Hbank3                 bank3        0000
 __HbssCOMMON             bssCOMMON    0000
-__Hcinit                 cinit        0015
+__Hcinit                 cinit        0017
 __Hclrtext               clrtext      0000
 __Hcode                  code         0000
 __Hcommon                common       0000
@@ -174,7 +178,7 @@ __Hsfr1                  sfr1         0000
 __Hsfr2                  sfr2         0000
 __Hsfr3                  sfr3         0000
 __Hspace_0               (abs)        2009
-__Hspace_1               (abs)        0074
+__Hspace_1               (abs)        0076
 __Hspace_2               (abs)        0000
 __Hspace_3               (abs)        0000
 __Hstack                 stack        0000
@@ -214,7 +218,7 @@ __Lstack                 stack        0000
 __Lstrings               strings      0000
 __Ltext                  text         0000
 __S0                     (abs)        2009
-__S1                     (abs)        0074
+__S1                     (abs)        0076
 __S2                     (abs)        0000
 __S3                     (abs)        0000
 ___int_sp                stack        0000
@@ -222,22 +226,22 @@ ___latbits               (abs)        0002
 ___sp                    stack        0000
 ___stackhi               (abs)        0000
 ___stacklo               (abs)        0000
-__end_of__initialization cinit        0011
-__end_of_isr             text1        0027
-__end_of_main            maintext     002B
+__end_of__initialization cinit        0013
+__end_of_isr             text1        0029
+__end_of_main            maintext     002D
 __initialization         cinit        000F
 __pbssCOMMON             bssCOMMON    0070
-__pcstackCOMMON          cstackCOMMON 0072
+__pcstackCOMMON          cstackCOMMON 0074
 __pintentry              intentry     0004
-__pmaintext              maintext     0027
-__ptext1                 text1        0015
+__pmaintext              maintext     0029
+__ptext1                 text1        0017
 __size_of_isr            (abs)        0000
 __size_of_main           (abs)        0000
-_eADC                    bssCOMMON    0070
-_isr                     text1        0015
-_main                    maintext     0027
+_eADC                    bssCOMMON    0072
+_isr                     text1        0017
+_main                    maintext     0029
 btemp                    (abs)        007E
-end_of_initialization    cinit        0011
+end_of_initialization    cinit        0013
 interrupt_function       intentry     0004
 intlevel0                functab      0000
 intlevel1                functab      0000
@@ -256,7 +260,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 62 in file "LCD.c"
+		line 49 in file "LCD.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -285,7 +289,7 @@ Total ram usage:        0 bytes
 
  *************** function _isr *****************
  Defined at:
-		line 36 in file "LCD.c"
+		line 38 in file "LCD.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -317,13 +321,13 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 shared
-		__initialization		CODE           	000F	0000	3
+		__initialization		CODE           	000F	0000	5
 
-shared estimated size: 3
+shared estimated size: 5
 
 LCD.c
-		_main          		CODE           	0027	0000	5
-		_isr           		CODE           	0015	0000	19
+		_main          		CODE           	0029	0000	5
+		_isr           		CODE           	0017	0000	19
 
 LCD.c estimated size: 24
 
