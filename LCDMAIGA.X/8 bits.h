@@ -41,7 +41,7 @@ void Control (char valor);
 void LCDvalue (void);
 void clean (void);
 void ON (char valor1);
-
+void valoradc (int x, int z);
 
 #endif	/* __Ochobit_LCD_H_ */
 

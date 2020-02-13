@@ -1,4 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"2977 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2977: extern volatile unsigned char ADCON1 __attribute__((address(0x09F)));
+[v _ADCON1 `Vuc ~T0 @X0 0 e@159 ]
+"1245
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1245: extern volatile unsigned char ADCON0 __attribute__((address(0x01F)));
+[v _ADCON0 `Vuc ~T0 @X0 0 e@31 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -233,13 +239,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"4 ADC.c
-[; ;ADC.c: 4: void ADC (void){
-[v _ADC `(v ~T0 @X0 1 ef ]
+"3 ADC.c
+[; ;ADC.c: 3: int canal;
+[v _canal `i ~T0 @X0 1 e ]
+"4
+[; ;ADC.c: 4: void ADC (int canal){
+[v _ADC `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _ADC ]
+[v _canal `i ~T0 @X0 1 r1 ]
 [f ]
+"5
+[; ;ADC.c: 5:     switch (canal){
+[e $U 140  ]
+{
 "6
-[; ;ADC.c: 6: }
+[; ;ADC.c: 6:         case 0:
+[e :U 141 ]
+"7
+[; ;ADC.c: 7:             ADCON1=0;
+[e = _ADCON1 -> -> 0 `i `uc ]
+"8
+[; ;ADC.c: 8:             ADCON0=0b01000001;
+[e = _ADCON0 -> -> 65 `i `uc ]
+"9
+[; ;ADC.c: 9:             break;
+[e $U 139  ]
+"11
+[; ;ADC.c: 11:         case 1:
+[e :U 142 ]
+"12
+[; ;ADC.c: 12:             ADCON1=0;
+[e = _ADCON1 -> -> 0 `i `uc ]
+"13
+[; ;ADC.c: 13:             ADCON0=0b01000101;
+[e = _ADCON0 -> -> 69 `i `uc ]
+"14
+[; ;ADC.c: 14:             break;}
+[e $U 139  ]
+}
+[e $U 139  ]
+[e :U 140 ]
+[e [\ _canal , $ -> 0 `i 141
+ , $ -> 1 `i 142
+ 139 ]
+[e :U 139 ]
+"15
+[; ;ADC.c: 15: }
 [e :UE 138 ]
 }

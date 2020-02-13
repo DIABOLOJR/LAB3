@@ -532,16 +532,225 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LibreriaLCD.c: 81: }
 [e :UE 159 ]
 }
-"85
-[; ;LibreriaLCD.c: 85: void clean (void){
+"84
+[; ;LibreriaLCD.c: 84: void valoradc (int x, int z){
+[v _valoradc `(v ~T0 @X0 1 ef2`i`i ]
+{
+[e :U _valoradc ]
+[v _x `i ~T0 @X0 1 r1 ]
+[v _z `i ~T0 @X0 1 r2 ]
+[f ]
+"86
+[; ;LibreriaLCD.c: 86:     switch (z) {
+[e $U 167  ]
+{
+"87
+[; ;LibreriaLCD.c: 87:         case 0:
+[e :U 168 ]
+"88
+[; ;LibreriaLCD.c: 88:             lcddirection (x,2,"0");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 1C ]
+"89
+[; ;LibreriaLCD.c: 89:             break;
+[e $U 166  ]
+"90
+[; ;LibreriaLCD.c: 90:         case 1:
+[e :U 169 ]
+"91
+[; ;LibreriaLCD.c: 91:             lcddirection (x,2,"1");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 2C ]
+"92
+[; ;LibreriaLCD.c: 92:             break;
+[e $U 166  ]
+"93
+[; ;LibreriaLCD.c: 93:         case 2:
+[e :U 170 ]
+"94
+[; ;LibreriaLCD.c: 94:             lcddirection (x,2,"2");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 3C ]
+"95
+[; ;LibreriaLCD.c: 95:             break;
+[e $U 166  ]
+"96
+[; ;LibreriaLCD.c: 96:         case 3:
+[e :U 171 ]
+"97
+[; ;LibreriaLCD.c: 97:             lcddirection (x,2,"3");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 4C ]
+"98
+[; ;LibreriaLCD.c: 98:             break;
+[e $U 166  ]
+"99
+[; ;LibreriaLCD.c: 99:         case 4:
+[e :U 172 ]
+"100
+[; ;LibreriaLCD.c: 100:             lcddirection (x,2,"4");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 5C ]
+"101
+[; ;LibreriaLCD.c: 101:             break;
+[e $U 166  ]
+"102
+[; ;LibreriaLCD.c: 102:         case 5:
+[e :U 173 ]
+"103
+[; ;LibreriaLCD.c: 103:             lcddirection (x,2,"5");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 6C ]
+"104
+[; ;LibreriaLCD.c: 104:             break;
+[e $U 166  ]
+"105
+[; ;LibreriaLCD.c: 105:         case 6:
+[e :U 174 ]
+"106
+[; ;LibreriaLCD.c: 106:             lcddirection (x,2,"6");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 7C ]
+"107
+[; ;LibreriaLCD.c: 107:             break;
+[e $U 166  ]
+"108
+[; ;LibreriaLCD.c: 108:         case 7:
+[e :U 175 ]
+"109
+[; ;LibreriaLCD.c: 109:             lcddirection (x,2,"7");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 8C ]
+"110
+[; ;LibreriaLCD.c: 110:             break;
+[e $U 166  ]
+"111
+[; ;LibreriaLCD.c: 111:         case 8:
+[e :U 176 ]
+"112
+[; ;LibreriaLCD.c: 112:             lcddirection (x,2,"8");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 9C ]
+"113
+[; ;LibreriaLCD.c: 113:             break;
+[e $U 166  ]
+"114
+[; ;LibreriaLCD.c: 114:         case 9:
+[e :U 177 ]
+"115
+[; ;LibreriaLCD.c: 115:             lcddirection (x,2,"9");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 10C ]
+"116
+[; ;LibreriaLCD.c: 116:             break;
+[e $U 166  ]
+"117
+[; ;LibreriaLCD.c: 117:         case 10:
+[e :U 178 ]
+"118
+[; ;LibreriaLCD.c: 118:             lcddirection (x,2,"A");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 11C ]
+"119
+[; ;LibreriaLCD.c: 119:             break;
+[e $U 166  ]
+"120
+[; ;LibreriaLCD.c: 120:         case 11:
+[e :U 179 ]
+"121
+[; ;LibreriaLCD.c: 121:             lcddirection (x,2,"B");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 12C ]
+"122
+[; ;LibreriaLCD.c: 122:             break;
+[e $U 166  ]
+"123
+[; ;LibreriaLCD.c: 123:         case 12:
+[e :U 180 ]
+"124
+[; ;LibreriaLCD.c: 124:             lcddirection (x,2,"C");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 13C ]
+"125
+[; ;LibreriaLCD.c: 125:             break;
+[e $U 166  ]
+"126
+[; ;LibreriaLCD.c: 126:         case 13:
+[e :U 181 ]
+"127
+[; ;LibreriaLCD.c: 127:             lcddirection (x,2,"D");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 14C ]
+"128
+[; ;LibreriaLCD.c: 128:             break;
+[e $U 166  ]
+"129
+[; ;LibreriaLCD.c: 129:         case 14:
+[e :U 182 ]
+"130
+[; ;LibreriaLCD.c: 130:             lcddirection (x,2,"E");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 15C ]
+"131
+[; ;LibreriaLCD.c: 131:             break;
+[e $U 166  ]
+"132
+[; ;LibreriaLCD.c: 132:         case 15:
+[e :U 183 ]
+"133
+[; ;LibreriaLCD.c: 133:             lcddirection (x,2,"F");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 16C ]
+"134
+[; ;LibreriaLCD.c: 134:             break;
+[e $U 166  ]
+"135
+[; ;LibreriaLCD.c: 135:         default:
+[e :U 184 ]
+"136
+[; ;LibreriaLCD.c: 136:             lcddirection (x,2,"0");
+[e ( _lcddirection (3 , , _x -> 2 `i :s 17C ]
+"137
+[; ;LibreriaLCD.c: 137:             break;
+[e $U 166  ]
+"138
+[; ;LibreriaLCD.c: 138:     }
+}
+[e $U 166  ]
+[e :U 167 ]
+[e [\ _z , $ -> 0 `i 168
+ , $ -> 1 `i 169
+ , $ -> 2 `i 170
+ , $ -> 3 `i 171
+ , $ -> 4 `i 172
+ , $ -> 5 `i 173
+ , $ -> 6 `i 174
+ , $ -> 7 `i 175
+ , $ -> 8 `i 176
+ , $ -> 9 `i 177
+ , $ -> 10 `i 178
+ , $ -> 11 `i 179
+ , $ -> 12 `i 180
+ , $ -> 13 `i 181
+ , $ -> 14 `i 182
+ , $ -> 15 `i 183
+ 184 ]
+[e :U 166 ]
+"140
+[; ;LibreriaLCD.c: 140: }
+[e :UE 165 ]
+}
+"143
+[; ;LibreriaLCD.c: 143: void clean (void){
 [v _clean `(v ~T0 @X0 1 ef ]
 {
 [e :U _clean ]
 [f ]
-"86
-[; ;LibreriaLCD.c: 86:     Control(0x01);
+"144
+[; ;LibreriaLCD.c: 144:     Control(0x01);
 [e ( _Control (1 -> -> 1 `i `uc ]
-"87
-[; ;LibreriaLCD.c: 87: }
-[e :UE 165 ]
+"145
+[; ;LibreriaLCD.c: 145: }
+[e :UE 185 ]
 }
+[a 16C 70 0 ]
+[a 15C 69 0 ]
+[a 14C 68 0 ]
+[a 13C 67 0 ]
+[a 12C 66 0 ]
+[a 11C 65 0 ]
+[a 10C 57 0 ]
+[a 9C 56 0 ]
+[a 8C 55 0 ]
+[a 7C 54 0 ]
+[a 6C 53 0 ]
+[a 5C 52 0 ]
+[a 4C 51 0 ]
+[a 3C 50 0 ]
+[a 2C 49 0 ]
+[a 1C 48 0 ]
+[a 17C 48 0 ]

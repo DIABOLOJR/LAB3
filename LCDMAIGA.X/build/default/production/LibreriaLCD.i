@@ -2504,6 +2504,7 @@ void Control (char valor);
 void LCDvalue (void);
 void clean (void);
 void ON (char valor1);
+void valoradc (int x, int z);
 # 1 "LibreriaLCD.c" 2
 
 
@@ -2721,6 +2722,64 @@ void lcddirection(int x, int y, char *valor){
     impresion (valor);
 }
 
+
+void valoradc (int x, int z){
+
+    switch (z) {
+        case 0:
+            lcddirection (x,2,"0");
+            break;
+        case 1:
+            lcddirection (x,2,"1");
+            break;
+        case 2:
+            lcddirection (x,2,"2");
+            break;
+        case 3:
+            lcddirection (x,2,"3");
+            break;
+        case 4:
+            lcddirection (x,2,"4");
+            break;
+        case 5:
+            lcddirection (x,2,"5");
+            break;
+        case 6:
+            lcddirection (x,2,"6");
+            break;
+        case 7:
+            lcddirection (x,2,"7");
+            break;
+        case 8:
+            lcddirection (x,2,"8");
+            break;
+        case 9:
+            lcddirection (x,2,"9");
+            break;
+        case 10:
+            lcddirection (x,2,"A");
+            break;
+        case 11:
+            lcddirection (x,2,"B");
+            break;
+        case 12:
+            lcddirection (x,2,"C");
+            break;
+        case 13:
+            lcddirection (x,2,"D");
+            break;
+        case 14:
+            lcddirection (x,2,"E");
+            break;
+        case 15:
+            lcddirection (x,2,"F");
+            break;
+        default:
+            lcddirection (x,2,"0");
+            break;
+    }
+
+}
 
 
 void clean (void){

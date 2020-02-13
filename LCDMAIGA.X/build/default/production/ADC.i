@@ -2494,10 +2494,21 @@ extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
 # 34 "./ADC.h" 2
+
+void ADC (int canal);
 # 1 "ADC.c" 2
 
 
+int canal;
+void ADC (int canal){
+    switch (canal){
+        case 0:
+            ADCON1=0;
+            ADCON0=0b01000001;
+            break;
 
-void ADC (void){
-
+        case 1:
+            ADCON1=0;
+            ADCON0=0b01000101;
+            break;}
 }

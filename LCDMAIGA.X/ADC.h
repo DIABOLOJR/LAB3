@@ -32,6 +32,5 @@
 #define	__ADC_H_
 
 #include <xc.h> // include processor files - each processor file is guarded.  
-
+void ADC (int canal);
 #endif	/* __ADC_H_ */
-
