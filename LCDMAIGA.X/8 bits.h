@@ -32,7 +32,15 @@
 #define	__Ochobit_LCD_H_
 
 #include <xc.h> // include processor files - each processor file is guarded.  
-
+void impresion (char *valor);
+void lcddirection(int x, int y, char *valor);
+void delay_ms (int dms);
+void delay_us (int dms);
+void Tiempocontrol (void);
+void Control (char valor);
+void LCDvalue (void);
+void clean (void);
+void ON (char valor1);
 
 
 #endif	/* __Ochobit_LCD_H_ */

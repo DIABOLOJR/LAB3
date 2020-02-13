@@ -2653,32 +2653,27 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 26 "LCD.c" 2
 
-
-
-
-
-
-
-int eADC;
-
-
-
-
-void __attribute__((picinterrupt(("")))) isr (void){
-    if (ADCON0bits.GO_DONE == 0){
-       eADC = 1;
-       PIR1bits.ADIF =0;
-    }
-}
-
-
-
-
-
+# 1 "./8 bits.h" 1
+# 35 "./8 bits.h"
+void impresion (char *valor);
+void lcddirection(int x, int y, char *valor);
+void delay_ms (int dms);
+void delay_us (int dms);
+void Tiempocontrol (void);
+void Control (char valor);
+void LCDvalue (void);
+void clean (void);
+void ON (char valor1);
+# 27 "LCD.c" 2
+# 51 "LCD.c"
 void main(void) {
+    LCDvalue();
+    impresion("HOLA");
+    delay_ms(130);
+    lcddirection(6,1,"EGMR");
+    delay_ms(130);
+    lcddirection(6,2,"JR");
 
-    while (1){
-
-    }
+    while (1){}
     return;
 }

@@ -2494,35 +2494,235 @@ extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
 # 34 "./8 bits.h" 2
+
+void impresion (char *valor);
+void lcddirection(int x, int y, char *valor);
+void delay_ms (int dms);
+void delay_us (int dms);
+void Tiempocontrol (void);
+void Control (char valor);
+void LCDvalue (void);
+void clean (void);
+void ON (char valor1);
 # 1 "LibreriaLCD.c" 2
-# 10 "LibreriaLCD.c"
-int value;
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int8_t;
+
+
+
+
+
+
+typedef signed int int16_t;
+
+
+
+
+
+
+
+typedef __int24 int24_t;
+
+
+
+
+
+
+
+typedef signed long int int32_t;
+# 52 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint8_t;
+
+
+
+
+
+typedef unsigned int uint16_t;
+
+
+
+
+
+
+typedef __uint24 uint24_t;
+
+
+
+
+
+
+typedef unsigned long int uint32_t;
+# 88 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_least8_t;
+
+
+
+
+
+
+
+typedef signed int int_least16_t;
+# 109 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_least24_t;
+# 118 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef signed long int int_least32_t;
+# 136 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_least8_t;
+
+
+
+
+
+
+typedef unsigned int uint_least16_t;
+# 154 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_least24_t;
+
+
+
+
+
+
+
+typedef unsigned long int uint_least32_t;
+# 181 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_fast8_t;
+
+
+
+
+
+
+typedef signed int int_fast16_t;
+# 200 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_fast24_t;
+
+
+
+
+
+
+
+typedef signed long int int_fast32_t;
+# 224 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+# 240 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_fast24_t;
+
+
+
+
+
+
+typedef unsigned long int uint_fast32_t;
+# 268 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef int32_t intmax_t;
+# 282 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef uint32_t uintmax_t;
+
+
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+# 3 "LibreriaLCD.c" 2
+
+
+
+
+
+
+
+int dms;
+int dus;
+void delay_ms(int dms){
+    for(int i = 0; i<dms; i++){
+        for(int j = 0; j<255; j++);
+    }
+}
+
+void delay_us (int dus){
+    for(int i = 0; i<dus; i++);
+}
+
+
 void Tiempocontrol (void){
     PORTDbits.RD7 = 1;
-    _delay((unsigned long)((5)*(_XTAL_FREQ/4000000.0)));
+    delay_us(5);
     PORTDbits.RD7 = 0;
-    _delay((unsigned long)((5)*(_XTAL_FREQ/4000000.0)));
+    delay_us(5);
 }
 
 void Control (char valor){
     PORTDbits.RD6 =0;
-    PORTB = valor & 0xF0;
+    PORTB = valor;
     Tiempocontrol();
-    PORTB =((valor & 0xF0)<<4);
-    Tiempocontrol();
-    _delay((unsigned long)((2)*(_XTAL_FREQ/4000.0)));
+    delay_ms(2);
 }
+
+void ON (char valor1){
+    PORTDbits.RD6 =1;
+    PORTB = valor1;
+    Tiempocontrol();
+    delay_us(50);
+}
+
 void LCDvalue (void){
     TRISDbits.TRISD6=0;
     TRISDbits.TRISD7=0;
-    TRISB= 0b11111111;
+    TRISB=0;
     PORTDbits.RD6=0;
     PORTDbits.RD7=0;
     PORTB=0;
-    _delay((unsigned long)((50)*(_XTAL_FREQ/4000.0)));
+    delay_ms(50);
     Control(0x02);
-    Control(0x28);
+    Control(0x38);
     Control(0x0C);
     Control(0x06);
 
+}
+
+void impresion (char *valor){
+    while (*valor){
+        ON(*valor);
+        valor++;
+    }
+}
+
+void lcddirection(int x, int y, char *valor){
+    char posicion;
+    switch (y) {
+        case 1:
+            posicion = 0x80 + x;
+            break;
+        case 2:
+            posicion = 0xC0 + x;
+            break;
+        default:
+            posicion = 0x80 + x;
+            break;
+    }
+    Control (posicion);
+    impresion (valor);
+}
+
+
+
+void clean (void){
+    Control(0x01);
 }

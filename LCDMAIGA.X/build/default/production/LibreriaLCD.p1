@@ -1,41 +1,32 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"41 ./8 bits.h
-[; ;./8 bits.h: 41: void LCDvalue (void);
-[v _LCDvalue `(v ~T0 @X0 0 ef ]
-"35
-[; ;./8 bits.h: 35: void impresion (char *valor);
-[v _impresion `(v ~T0 @X0 0 ef1`*uc ]
-"37
-[; ;./8 bits.h: 37: void delay_ms (int dms);
-[v _delay_ms `(v ~T0 @X0 0 ef1`i ]
-"36
-[; ;./8 bits.h: 36: void lcddirection(int x, int y, char *valor);
-[v _lcddirection `(v ~T0 @X0 0 ef3`i`i`*uc ]
-"7 LCD.c
-[p x FOSC = INTRC_CLKOUT ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x MCLRE = ON ]
-"11
-[p x CP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x BOREN = ON ]
-"14
-[p x IESO = OFF ]
-"15
-[p x FCMEN = OFF ]
-"16
-[p x LVP = OFF ]
-"19
-[p x BOR4V = BOR40V ]
-"20
-[p x WRT = OFF ]
+"358 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 358:     struct {
+[s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S12 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"357
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 357: typedef union {
+[u S11 `S12 1 ]
+[n S11 . . ]
+"369
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 369: extern volatile PORTDbits_t PORTDbits __attribute__((address(0x008)));
+[v _PORTDbits `VS11 ~T0 @X0 0 e@8 ]
+"228
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"1608
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1608:     struct {
+[s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S59 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"1607
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1607: typedef union {
+[u S58 `S59 1 ]
+[n S58 . . ]
+"1619
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1619: extern volatile TRISDbits_t TRISDbits __attribute__((address(0x088)));
+[v _TRISDbits `VS58 ~T0 @X0 0 e@136 ]
+"1478
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -270,46 +261,287 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-[v $root$_main `(v ~T0 @X0 0 e ]
-"51 LCD.c
-[; ;LCD.c: 51: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
+"10 LibreriaLCD.c
+[; ;LibreriaLCD.c: 10: int dms;
+[v _dms `i ~T0 @X0 1 e ]
+"11
+[; ;LibreriaLCD.c: 11: int dus;
+[v _dus `i ~T0 @X0 1 e ]
+"12
+[; ;LibreriaLCD.c: 12: void delay_ms(int dms){
+[v _delay_ms `(v ~T0 @X0 1 ef1`i ]
 {
-[e :U _main ]
+[e :U _delay_ms ]
+[v _dms `i ~T0 @X0 1 r1 ]
 [f ]
-"52
-[; ;LCD.c: 52:     LCDvalue();
-[e ( _LCDvalue ..  ]
-"53
-[; ;LCD.c: 53:     impresion("HOLA");
-[e ( _impresion (1 :s 1C ]
-"54
-[; ;LCD.c: 54:     delay_ms(130);
-[e ( _delay_ms (1 -> 130 `i ]
-"55
-[; ;LCD.c: 55:     lcddirection(6,1,"EGMR");
-[e ( _lcddirection (3 , , -> 6 `i -> 1 `i :s 2C ]
-"56
-[; ;LCD.c: 56:     delay_ms(130);
-[e ( _delay_ms (1 -> 130 `i ]
-"57
-[; ;LCD.c: 57:     lcddirection(6,2,"JR");
-[e ( _lcddirection (3 , , -> 6 `i -> 2 `i :s 3C ]
-"59
-[; ;LCD.c: 59:     while (1){}
-[e :U 140 ]
+"13
+[; ;LibreriaLCD.c: 13:     for(int i = 0; i<dms; i++){
 {
-}
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 142  ]
 [e :U 139 ]
-[e $U 140  ]
-[e :U 141 ]
-"60
-[; ;LCD.c: 60:     return;
-[e $UE 138  ]
-"61
-[; ;LCD.c: 61: }
+{
+"14
+[; ;LibreriaLCD.c: 14:         for(int j = 0; j<255; j++);
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 255 `i 143  ]
+[e $U 144  ]
+[e :U 143 ]
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 255 `i 143  ]
+[e :U 144 ]
+}
+"15
+[; ;LibreriaLCD.c: 15:     }
+}
+[e ++ _i -> 1 `i ]
+[e :U 142 ]
+[e $ < _i _dms 139  ]
+[e :U 140 ]
+}
+"16
+[; ;LibreriaLCD.c: 16: }
 [e :UE 138 ]
 }
-[a 2C 69 71 77 82 0 ]
-[a 3C 74 82 0 ]
-[a 1C 72 79 76 65 0 ]
+"18
+[; ;LibreriaLCD.c: 18: void delay_us (int dus){
+[v _delay_us `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _delay_us ]
+[v _dus `i ~T0 @X0 1 r1 ]
+[f ]
+"19
+[; ;LibreriaLCD.c: 19:     for(int i = 0; i<dus; i++);
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 150  ]
+[e :U 147 ]
+[e ++ _i -> 1 `i ]
+[e :U 150 ]
+[e $ < _i _dus 147  ]
+[e :U 148 ]
+}
+"20
+[; ;LibreriaLCD.c: 20: }
+[e :UE 146 ]
+}
+"23
+[; ;LibreriaLCD.c: 23: void Tiempocontrol (void){
+[v _Tiempocontrol `(v ~T0 @X0 1 ef ]
+{
+[e :U _Tiempocontrol ]
+[f ]
+"24
+[; ;LibreriaLCD.c: 24:     PORTDbits.RD7 = 1;
+[e = . . _PORTDbits 0 7 -> -> 1 `i `uc ]
+"25
+[; ;LibreriaLCD.c: 25:     delay_us(5);
+[e ( _delay_us (1 -> 5 `i ]
+"26
+[; ;LibreriaLCD.c: 26:     PORTDbits.RD7 = 0;
+[e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
+"27
+[; ;LibreriaLCD.c: 27:     delay_us(5);
+[e ( _delay_us (1 -> 5 `i ]
+"28
+[; ;LibreriaLCD.c: 28: }
+[e :UE 151 ]
+}
+"30
+[; ;LibreriaLCD.c: 30: void Control (char valor){
+[v _Control `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _Control ]
+[v _valor `uc ~T0 @X0 1 r1 ]
+[f ]
+"31
+[; ;LibreriaLCD.c: 31:     PORTDbits.RD6 =0;
+[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
+"32
+[; ;LibreriaLCD.c: 32:     PORTB = valor;
+[e = _PORTB -> _valor `uc ]
+"33
+[; ;LibreriaLCD.c: 33:     Tiempocontrol();
+[e ( _Tiempocontrol ..  ]
+"34
+[; ;LibreriaLCD.c: 34:     delay_ms(2);
+[e ( _delay_ms (1 -> 2 `i ]
+"35
+[; ;LibreriaLCD.c: 35: }
+[e :UE 152 ]
+}
+"37
+[; ;LibreriaLCD.c: 37: void ON (char valor1){
+[v _ON `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _ON ]
+[v _valor1 `uc ~T0 @X0 1 r1 ]
+[f ]
+"38
+[; ;LibreriaLCD.c: 38:     PORTDbits.RD6 =1;
+[e = . . _PORTDbits 0 6 -> -> 1 `i `uc ]
+"39
+[; ;LibreriaLCD.c: 39:     PORTB = valor1;
+[e = _PORTB -> _valor1 `uc ]
+"40
+[; ;LibreriaLCD.c: 40:     Tiempocontrol();
+[e ( _Tiempocontrol ..  ]
+"41
+[; ;LibreriaLCD.c: 41:     delay_us(50);
+[e ( _delay_us (1 -> 50 `i ]
+"42
+[; ;LibreriaLCD.c: 42: }
+[e :UE 153 ]
+}
+"44
+[; ;LibreriaLCD.c: 44: void LCDvalue (void){
+[v _LCDvalue `(v ~T0 @X0 1 ef ]
+{
+[e :U _LCDvalue ]
+[f ]
+"45
+[; ;LibreriaLCD.c: 45:     TRISDbits.TRISD6=0;
+[e = . . _TRISDbits 0 6 -> -> 0 `i `uc ]
+"46
+[; ;LibreriaLCD.c: 46:     TRISDbits.TRISD7=0;
+[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+"47
+[; ;LibreriaLCD.c: 47:     TRISB=0;
+[e = _TRISB -> -> 0 `i `uc ]
+"48
+[; ;LibreriaLCD.c: 48:     PORTDbits.RD6=0;
+[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
+"49
+[; ;LibreriaLCD.c: 49:     PORTDbits.RD7=0;
+[e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
+"50
+[; ;LibreriaLCD.c: 50:     PORTB=0;
+[e = _PORTB -> -> 0 `i `uc ]
+"51
+[; ;LibreriaLCD.c: 51:     delay_ms(50);
+[e ( _delay_ms (1 -> 50 `i ]
+"52
+[; ;LibreriaLCD.c: 52:     Control(0x02);
+[e ( _Control (1 -> -> 2 `i `uc ]
+"53
+[; ;LibreriaLCD.c: 53:     Control(0x38);
+[e ( _Control (1 -> -> 56 `i `uc ]
+"54
+[; ;LibreriaLCD.c: 54:     Control(0x0C);
+[e ( _Control (1 -> -> 12 `i `uc ]
+"55
+[; ;LibreriaLCD.c: 55:     Control(0x06);
+[e ( _Control (1 -> -> 6 `i `uc ]
+"57
+[; ;LibreriaLCD.c: 57: }
+[e :UE 154 ]
+}
+"59
+[; ;LibreriaLCD.c: 59: void impresion (char *valor){
+[v _impresion `(v ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _impresion ]
+[v _valor `*uc ~T0 @X0 1 r1 ]
+[f ]
+"60
+[; ;LibreriaLCD.c: 60:     while (*valor){
+[e $U 156  ]
+[e :U 157 ]
+{
+"61
+[; ;LibreriaLCD.c: 61:         ON(*valor);
+[e ( _ON (1 *U _valor ]
+"62
+[; ;LibreriaLCD.c: 62:         valor++;
+[e ++ _valor * -> -> 1 `i `x -> -> # *U _valor `i `x ]
+"63
+[; ;LibreriaLCD.c: 63:     }
+}
+[e :U 156 ]
+"60
+[; ;LibreriaLCD.c: 60:     while (*valor){
+[e $ != -> *U _valor `i -> 0 `i 157  ]
+[e :U 158 ]
+"64
+[; ;LibreriaLCD.c: 64: }
+[e :UE 155 ]
+}
+"66
+[; ;LibreriaLCD.c: 66: void lcddirection(int x, int y, char *valor){
+[v _lcddirection `(v ~T0 @X0 1 ef3`i`i`*uc ]
+{
+[e :U _lcddirection ]
+[v _x `i ~T0 @X0 1 r1 ]
+[v _y `i ~T0 @X0 1 r2 ]
+[v _valor `*uc ~T0 @X0 1 r3 ]
+[f ]
+"67
+[; ;LibreriaLCD.c: 67:     char posicion;
+[v _posicion `uc ~T0 @X0 1 a ]
+"68
+[; ;LibreriaLCD.c: 68:     switch (y) {
+[e $U 161  ]
+{
+"69
+[; ;LibreriaLCD.c: 69:         case 1:
+[e :U 162 ]
+"70
+[; ;LibreriaLCD.c: 70:             posicion = 0x80 + x;
+[e = _posicion -> + -> 128 `i _x `uc ]
+"71
+[; ;LibreriaLCD.c: 71:             break;
+[e $U 160  ]
+"72
+[; ;LibreriaLCD.c: 72:         case 2:
+[e :U 163 ]
+"73
+[; ;LibreriaLCD.c: 73:             posicion = 0xC0 + x;
+[e = _posicion -> + -> 192 `i _x `uc ]
+"74
+[; ;LibreriaLCD.c: 74:             break;
+[e $U 160  ]
+"75
+[; ;LibreriaLCD.c: 75:         default:
+[e :U 164 ]
+"76
+[; ;LibreriaLCD.c: 76:             posicion = 0x80 + x;
+[e = _posicion -> + -> 128 `i _x `uc ]
+"77
+[; ;LibreriaLCD.c: 77:             break;
+[e $U 160  ]
+"78
+[; ;LibreriaLCD.c: 78:     }
+}
+[e $U 160  ]
+[e :U 161 ]
+[e [\ _y , $ -> 1 `i 162
+ , $ -> 2 `i 163
+ 164 ]
+[e :U 160 ]
+"79
+[; ;LibreriaLCD.c: 79:     Control (posicion);
+[e ( _Control (1 _posicion ]
+"80
+[; ;LibreriaLCD.c: 80:     impresion (valor);
+[e ( _impresion (1 _valor ]
+"81
+[; ;LibreriaLCD.c: 81: }
+[e :UE 159 ]
+}
+"85
+[; ;LibreriaLCD.c: 85: void clean (void){
+[v _clean `(v ~T0 @X0 1 ef ]
+{
+[e :U _clean ]
+[f ]
+"86
+[; ;LibreriaLCD.c: 86:     Control(0x01);
+[e ( _Control (1 -> -> 1 `i `uc ]
+"87
+[; ;LibreriaLCD.c: 87: }
+[e :UE 165 ]
+}

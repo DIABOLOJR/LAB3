@@ -24,32 +24,38 @@
  */
 #include <xc.h>
 #include <stdint.h>
-#define _XTAL_FREQ 4000000 
+#include "8 bits.h"
+#define _XTAL_FREQ 4000000
 
 
 /*
  *Variables y asignaciones previas
  */
-int eADC;
+//int eADC;
 
 
 
-
+/*
 void __interrupt () isr (void){
     if (ADCON0bits.GO_DONE == 0){
        eADC = 1;
        PIR1bits.ADIF =0;
     }
 }
+ */
 
 
 
 
 
 void main(void) {
-    
-    while (1){
-        
-    }
+    LCDvalue();/*Inicio de LCD*/
+    impresion("HOLA");
+    delay_ms(130);
+    lcddirection(6,1,"EGMR");
+    delay_ms(130);
+    lcddirection(6,2,"JR");    
+ 
+    while (1){}
     return;
 }
