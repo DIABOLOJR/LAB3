@@ -27,7 +27,9 @@
 #include "8 bits.h"
 #include "ADC.h"
 #define _XTAL_FREQ 4000000
-
+/*
+ *Variables
+ */
 int dios;
 int maria;
 int jose;
@@ -36,12 +38,8 @@ int v2;
 int v3;
 int v4;
 
-/*
- *Variables y asignaciones previas
- */
-//int eADC;
 
-void darules (void){
+void darules (void){// fUncion de inicializacon del PIC y sus interrupciones.
     ANSEL = 0b00000011;
     ANSELH=0;
     TRISA = 0b00000011;
@@ -58,21 +56,21 @@ void darules (void){
 }
 
 
-void __interrupt () isr (void){
-    if (PIR1bits.ADIF == 1){
+void __interrupt () isr (void){//Interrupciones del pic de la onvercion del ADC
+    if (PIR1bits.ADIF == 1){//chequo de la bandera
        if (dios ==1 ){
-           dios =0;
+           dios =0;//variable de Enable
        }
        else if(dios == 0){
            dios=1;
        }
-       PIR1bits.ADIF =0;
+       PIR1bits.ADIF =0;//apagado ed la bandera
     }
 }
  
 
 
-void CONVERSIOADC (void){
+void CONVERSIOADC (void){//colocacion de los valores del Addresh en una variable y seleccion de canal del ADC y reactivacion de la conversion.
     if (dios == 1){
         maria = ADRESH;
         ADC(0);
@@ -86,7 +84,7 @@ void CONVERSIOADC (void){
         ADCON0bits.GO_DONE=1;
     }
 }
-
+//transformacion de los valores del de ADC para desplegarse en pantealla
 void nibbles(void){
     v1 = maria & 0b00001111;
     v2 = maria & 0b11110000;

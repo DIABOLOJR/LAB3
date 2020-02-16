@@ -1,6 +1,14 @@
+/*
+ * Esta libreria fue extraida de:  https://www.youtube.com/watch?v=RgTMbQ6lssI&t=2336s
+ * y la cual fue implementada a 8 bits para el trabajo de este laboratorio.
+ */
+
+
+
 #include "8 bits.h"
 #include <xc.h>
 #include <stdint.h>
+/* Definicion de variables en formato de los pines de salida del PIC*/
 #define RS  PORTDbits.RD6
 #define EN  PORTDbits.RD7
 #define TRISRS TRISDbits.TRISD6
@@ -16,31 +24,31 @@ void delay_ms(int dms){
 }
 
 void delay_us (int dus){
-    for(int i = 0; i<dus; i++);// ciclo para el aumento en microseg
+    for(int i = 0; i<dus; i++);// ciclo para el aumento en microseg.
 }
 
-
+// Funcion para Activar y desactivar el Enable de la LCD
 void Tiempocontrol (void){
     EN = 1;
     delay_us(5);
     EN = 0;
     delay_us(5);
 }
-
+// Coloca el RS de la LCD en 0 y manada el valor binario para desplegarlo en la pantalla.
 void Control (char valor){
     RS =0;
     PUERTO = valor;
     Tiempocontrol();
     delay_ms(2);
 }
-
+//Funcion similar a la anterior con la diferencia que enciende el RS y coloca el valor en la pantalla nuevamente desde otra variable
 void ON (char valor1){
     RS =1;
     PUERTO = valor1;
     Tiempocontrol();
     delay_us(50);
 }
-
+//Funcion de seteo de la LCD para inicializar las 16*2 lineas de la pantalla.
 void LCDvalue (void){
     TRISRS=0;
     TRISEN=0;
@@ -55,14 +63,14 @@ void LCDvalue (void){
     Control(0x06);
     
 }
-
+// agarra el valor de puntero de la variable y llamado a la funcion para colocar el grupod de palabras en ela lcd
 void impresion (char *valor){
     while (*valor){
         ON(*valor);
         valor++;
     }
 }
-
+//En esta funcion se colocan los datos en funcion de la posicion para poder escribir en toda la LCD para aprovechar los 16 cuadros
 void lcddirection(int x, int y, char *valor){
     char posicion;
     switch (y) {
@@ -80,7 +88,7 @@ void lcddirection(int x, int y, char *valor){
     impresion (valor);
 }
 
-
+//Funcion para desplegar los valores del ADC mapeados en funcion del pot de 0 a 1023 // 0 a 255
 void valoradc (int x, int z){
     
     switch (z) {
@@ -140,7 +148,7 @@ void valoradc (int x, int z){
 }
 
 
-void clean (void){
+void clean (void){//Funcion de borrado de la LCD
     Control(0x01);
 }
 
